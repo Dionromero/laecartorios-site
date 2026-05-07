@@ -1,0 +1,234 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================================
+   LAE CARTÓRIOS — Design Tokens
+   Paleta institucional contábil-jurídica com accent âmbar (#f8c44f)
+   Inspirada na estrutura editorial do Kinto, adaptada para autoridade.
+   ============================================================================ */
+
+:root {
+  /* Brand */
+  --lae-amber: #f8c44f;
+  --lae-amber-soft: #fde9b8;
+  --lae-amber-deep: #b8861f;
+  --lae-ink: #1c1917;
+  --lae-stone: #57534e;
+  --lae-paper: #fafaf9;
+
+  /* shadcn tokens (LAE light) */
+  --background: oklch(0.992 0.002 80);
+  --foreground: oklch(0.18 0.01 60);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 60);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 60);
+
+  --primary: oklch(0.82 0.135 80);
+  --primary-foreground: oklch(0.18 0.01 60);
+
+  --secondary: oklch(0.95 0.015 70);
+  --secondary-foreground: oklch(0.22 0.01 60);
+
+  --muted: oklch(0.96 0.008 75);
+  --muted-foreground: oklch(0.45 0.01 60);
+
+  --accent: oklch(0.93 0.06 80);
+  --accent-foreground: oklch(0.22 0.01 60);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: oklch(0.9 0.01 70);
+  --input: oklch(0.9 0.01 70);
+  --ring: oklch(0.82 0.135 80);
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.16 0.01 60);
+  --foreground: oklch(0.96 0.005 70);
+
+  --card: oklch(0.2 0.01 60);
+  --card-foreground: oklch(0.96 0.005 70);
+
+  --popover: oklch(0.2 0.01 60);
+  --popover-foreground: oklch(0.96 0.005 70);
+
+  --primary: oklch(0.82 0.135 80);
+  --primary-foreground: oklch(0.18 0.01 60);
+
+  --secondary: oklch(0.25 0.01 60);
+  --secondary-foreground: oklch(0.96 0.005 70);
+
+  --muted: oklch(0.25 0.01 60);
+  --muted-foreground: oklch(0.65 0.01 60);
+
+  --accent: oklch(0.3 0.04 75);
+  --accent-foreground: oklch(0.96 0.005 70);
+
+  --destructive: oklch(0.62 0.22 25);
+
+  --border: oklch(0.28 0.01 60);
+  --input: oklch(0.28 0.01 60);
+  --ring: oklch(0.82 0.135 80);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-lae-amber: var(--lae-amber);
+  --color-lae-amber-soft: var(--lae-amber-soft);
+  --color-lae-amber-deep: var(--lae-amber-deep);
+  --color-lae-ink: var(--lae-ink);
+  --color-lae-stone: var(--lae-stone);
+  --color-lae-paper: var(--lae-paper);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Editorial pull quotes — heritage from Kinto, used sparingly */
+  .quote-mark::before {
+    content: "\201C";
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 0;
+    vertical-align: -0.4em;
+    color: var(--lae-amber);
+    margin-right: 0.25rem;
+  }
+
+  /* Numbered section labels */
+  .section-eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.2em] text-lae-amber-deep;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Animated underline for nav links */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0;
+    background-color: var(--lae-amber);
+    transition: width 200ms ease;
+  }
+  .nav-link:hover::after,
+  .nav-link[data-active="true"]::after {
+    width: 100%;
+  }
+
+  /* Editorial prose styles for MDX blog posts */
+  .prose-lae {
+    @apply max-w-none text-base leading-relaxed text-lae-stone;
+  }
+  .prose-lae h2 {
+    @apply mt-12 mb-4 text-2xl font-bold tracking-tight text-lae-ink;
+  }
+  .prose-lae h3 {
+    @apply mt-10 mb-3 text-xl font-semibold tracking-tight text-lae-ink;
+  }
+  .prose-lae p {
+    @apply my-5;
+  }
+  .prose-lae a {
+    @apply text-lae-amber-deep underline decoration-lae-amber decoration-2 underline-offset-4 hover:decoration-lae-amber-deep;
+  }
+  .prose-lae strong {
+    @apply font-semibold text-lae-ink;
+  }
+  .prose-lae blockquote {
+    @apply my-6 border-l-4 border-lae-amber pl-5 italic text-lae-ink/80;
+  }
+  .prose-lae ul {
+    @apply my-5 list-disc space-y-1.5 pl-6;
+  }
+  .prose-lae ol {
+    @apply my-5 list-decimal space-y-1.5 pl-6;
+  }
+  .prose-lae code {
+    @apply rounded bg-lae-amber/20 px-1.5 py-0.5 font-mono text-sm text-lae-ink;
+  }
+  .prose-lae pre {
+    @apply my-6 overflow-x-auto rounded-lg bg-lae-ink p-4 text-sm text-white;
+  }
+  .prose-lae pre code {
+    @apply bg-transparent p-0 text-white;
+  }
+  .prose-lae hr {
+    @apply my-10 border-lae-ink/10;
+  }
+  .prose-lae img {
+    @apply my-8 rounded-lg;
+  }
+
+  /* Subtle paper-like grain for hero — institucional sem ser estéril */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
