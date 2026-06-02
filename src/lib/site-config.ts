@@ -10,13 +10,12 @@ export const siteConfig = {
   description:
     "LAE Cartórios — Autoridade e excelência contábil para o extrajudicial. Gestão administrativa, otimização tributária e atendimento personalizado para cartórios em todo o Brasil.",
   url: "https://laecartorios.com.br",
-  ogImage: "/og-image.jpg",
+  ogImage: "/logolae3.PNG",
 
   nav: [
     { label: "Quem Somos", href: "/quem-somos" },
     { label: "Serviços", href: "/servicos" },
     { label: "Blog da LAE", href: "/blog" },
-    { label: "Onvio", href: "https://onvio.com.br", external: true },
   ] satisfies readonly NavItem[],
 
   contact: {
@@ -34,7 +33,6 @@ export const siteConfig = {
       { label: "Serviços", href: "/servicos" },
       { label: "Blog da LAE", href: "/blog" },
       { label: "Parceiros LAE", href: "/parceiros" },
-      { label: "Acesso Onvio", href: "https://onvio.com.br", external: true },
     ] satisfies readonly NavItem[],
   },
 } as const;
