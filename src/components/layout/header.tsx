@@ -12,35 +12,46 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-lae-ink/10 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-lae-ink/10 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link href="/" aria-label="LAE Cartórios — Página inicial">
           <LaeLogo />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {siteConfig.nav.map((item, idx) => (
-            <div key={item.href} className="flex items-center gap-10">
+            <div key={item.href} className="flex items-center gap-7">
               <Link
                 href={item.href}
                 className="nav-link text-sm font-medium text-lae-ink transition-colors hover:text-lae-amber-deep"
-                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...("external" in item && item.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
               >
                 {item.label}
               </Link>
               {idx < siteConfig.nav.length - 1 && (
-                <span className="text-lae-ink/20" aria-hidden>
+                <span className="text-lae-ink/25" aria-hidden>
                   |
                 </span>
               )}
             </div>
           ))}
+          <Button asChild size="sm" className="ml-1">
+            <a
+              href={siteConfig.contact.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Falar com a LAE
+            </a>
+          </Button>
         </nav>
 
         {/* Mobile toggle */}
         <button
-          className="rounded-md p-2 lg:hidden"
+          className="rounded-md p-2 text-lae-ink lg:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -63,14 +74,20 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-3 py-3 text-base font-medium text-lae-ink hover:bg-lae-amber/10"
-              {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="rounded-md px-3 py-3 text-base font-medium text-lae-ink transition-colors hover:bg-lae-amber/10 hover:text-lae-amber-deep"
+              {...("external" in item && item.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
             >
               {item.label}
             </Link>
           ))}
           <Button asChild className="mt-2">
-            <a href={siteConfig.contact.whatsappLink} target="_blank" rel="noopener noreferrer">
+            <a
+              href={siteConfig.contact.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Falar com a LAE
             </a>
           </Button>

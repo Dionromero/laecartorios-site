@@ -1,21 +1,22 @@
 import { Play } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 interface AboutVideoProps {
   youtubeId?: string;
 }
 
-export function AboutVideo({ youtubeId = "dQw4w9WgXcQ" }: AboutVideoProps) {
+export function AboutVideo({ youtubeId = "7SnQy1xvTYY" }: AboutVideoProps) {
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Texto */}
-          <div>
+          <Reveal>
             <span className="section-eyebrow">Sobre a LAE</span>
-            <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-lae-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            <h2 className="mt-3 text-balance font-display text-3xl font-bold tracking-tight text-lae-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
               Especialistas em contabilidade cartorial há mais de uma década.
             </h2>
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-lae-stone">
+            <div className="mt-4 gold-rule" />
+            <div className="mt-6 space-y-4 text-base text-justify leading-relaxed text-lae-stone">
               <p>
                 A LAE Cartórios nasceu da necessidade de um atendimento contábil que
                 entendesse a realidade do extrajudicial brasileiro. Trabalhamos com
@@ -27,24 +28,24 @@ export function AboutVideo({ youtubeId = "dQw4w9WgXcQ" }: AboutVideoProps) {
                 center, sem tickets, sem retrabalho.
               </p>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Vídeo */}
-          <div className="relative aspect-video overflow-hidden rounded-lg border border-lae-amber/40 bg-lae-amber/40 shadow-xl">
-            <iframe
-              src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
-              title="Apresentação institucional LAE Cartórios"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 size-full"
-              loading="lazy"
-            />
-            {/* Decorative play badge — visível só sobre placeholder */}
-            <div className="pointer-events-none absolute right-4 top-4 flex items-center gap-2 rounded-full bg-lae-ink px-3 py-1.5 text-xs font-medium text-white">
-              <Play className="size-3 fill-current" />
-              Vídeo institucional
+          <Reveal delay={120}>
+            <div className="relative aspect-video overflow-hidden rounded-xl border border-lae-ink/10 bg-lae-amber/30 shadow-xl">
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+                title="Apresentação institucional LAE Cartórios"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 size-full"
+                loading="lazy"
+              />
+              <div className="pointer-events-none absolute right-4 top-4 flex items-center gap-2 rounded-full bg-lae-ink px-3 py-1.5 text-xs font-medium text-white">
+                <Play className="size-3 fill-current" />
+                Vídeo institucional
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

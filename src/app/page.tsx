@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { StatsBar } from "@/components/sections/stats-bar";
 import { AboutVideo } from "@/components/sections/about-video";
 import { BlogSection } from "@/components/sections/blog-section";
 import { TaglineStars } from "@/components/sections/tagline-stars";
@@ -13,6 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <StatsBar />
       <AboutVideo />
       <BlogSection />
       <TaglineStars />
