@@ -5,10 +5,11 @@ import {
   Shield,
   TrendingUp,
   Users,
-  ChevronDown,
+  ArrowDownRight,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/site-config";
 import type { Service } from "@/lib/content";
 
@@ -31,23 +32,19 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Coluna esquerda — Como podemos ajudar */}
-          <div>
-            <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
+          <Reveal>
+            <h2 className="font-display text-3xl text-center font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
               Como podemos{" "}
-              <span className="italic text-lae-amber-deep">ajudar?</span>
+              <span className="heading-accent">ajudar?</span>
             </h2>
-            <ChevronDown
-              className="mt-2 size-6 text-lae-stone/50"
-              aria-hidden="true"
-            />
 
-            <ul className="mt-8 grid grid-cols-3 gap-4">
+            <ul className="m-8 grid grid-cols-3 gap-5">
               {services.slice(0, 3).map((service) => {
                 const Icon = ICON_MAP[service.icon];
                 return (
-                  <li key={service.slug} className="text-center">
-                    <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-lae-stone/15 ring-2 ring-lae-amber/40">
-                      <Icon className="size-7 text-lae-stone" />
+                  <li key={service.slug} className="group text-center">
+                    <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-lae-ink ring-2 ring-lae-amber/40 transition-transform group-hover:-translate-y-1">
+                      <Icon className="size-7 text-lae-amber" />
                     </div>
                     <p className="mt-3 text-balance text-xs font-semibold text-lae-ink">
                       {service.title}
@@ -56,20 +53,16 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
                 );
               })}
             </ul>
-          </div>
+          </Reveal>
 
           {/* Coluna direita — Soluções 360° */}
-          <div>
-            <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
+          <Reveal delay={120}>
+            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
               Soluções 360°{" "}
-              <span className="block text-lae-amber-deep">para a sua Gestão.</span>
+              <span className="block heading-accent">para a sua Gestão.</span>
             </h2>
-            <ChevronDown
-              className="mt-2 size-6 text-lae-stone/50"
-              aria-hidden="true"
-            />
 
-            <p className="mt-8 text-base leading-relaxed text-lae-stone">
+            <p className="mt-8 text-base text-justify leading-relaxed text-lae-stone">
               Ao contratar a LAE, você adquire atendimento exclusivo, onboarding
               personalizado dos serviços e a tranquilidade de uma gestão blindada
               com prestação de contas impecável.
@@ -92,7 +85,7 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
                 <a href="/servicos">Ver todos os serviços</a>
               </Button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

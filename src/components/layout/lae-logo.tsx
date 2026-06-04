@@ -7,7 +7,7 @@ interface LaeLogoProps {
 }
 
 export function LaeLogo({ className, variant = "default" }: LaeLogoProps) {
-  const inkClass = variant === "footer" ? "text-lae-ink" : "text-lae-ink";
+  const ink = variant === "footer" ? "text-lae-ink" : "text-lae-ink";
   return (
     <div className={cn("flex items-center gap-2.5", className)}>
       <Image
@@ -19,10 +19,10 @@ export function LaeLogo({ className, variant = "default" }: LaeLogoProps) {
         priority
       />
       <div className="flex flex-col leading-none">
-        <span className={cn("text-2xl font-bold tracking-tight", inkClass)}>
+        <span className={cn("font-display text-2xl font-bold tracking-tight", ink)}>
           LAE
         </span>
-        <span className={cn("text-[10px] font-semibold tracking-[0.18em]", inkClass)}>
+        <span className={cn("mt-0.5 text-[10px] font-semibold tracking-[0.18em]", ink)}>
           CARTÓRIOS
         </span>
         <span className="mt-0.5 text-[7px] font-medium tracking-[0.15em] text-lae-stone">
