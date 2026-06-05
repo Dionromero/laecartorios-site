@@ -57,7 +57,7 @@ export function ClientsSection({ clients }: ClientsSectionProps) {
                       <h3 className="font-semibold text-lae-ink">{client.name}</h3>
                       <p className="text-sm text-lae-stone">{client.location}</p>
                       <Quote className="mt-2 size-4 text-lae-amber" />
-                      <p className="mt-1 text-sm leading-relaxed text-lae-stone">
+                      <p className="mt-1 text-sm leading-relaxed text-justify text-lae-stone">
                         {client.testimonial}
                       </p>
                     </div>
