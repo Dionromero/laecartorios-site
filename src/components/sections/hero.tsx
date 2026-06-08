@@ -2,6 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -84,21 +85,21 @@ export function Hero() {
                 aria-roledescription="slide"
                 aria-label={`Slide ${i + 1} de ${slides.length}`}
               >
-                <div className="mx-auto max-w-3xl text-center">
+                <div className="max-w-2xl text-left">
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-lae-ink/70">
                     {slide.eyebrow}
                   </span>
                   <h1 className="mt-5 text-balance font-display text-4xl font-bold leading-[1.08] tracking-tight text-lae-ink sm:text-5xl lg:text-6xl">
                     {slide.title}
                   </h1>
-                  <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-lae-ink/80">
+                  <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-lae-ink/80">
                     {slide.description}
                   </p>
-                  <div className="mt-10 flex flex-wrap justify-center gap-4">
-                    <Button asChild variant="link" size="lg">
+                  <div className="mt-10 flex flex-wrap gap-4">
+                    <Button asChild variant="ghost" size="lg">
                       <a href={slide.ctaHref}>{slide.ctaLabel}</a>
                     </Button>
-                    <Button asChild variant="outline" size="lg">
+                    <Button asChild variant="ink" size="lg">
                       <a href="/servicos">Conheça os serviços</a>
                     </Button>
                   </div>
@@ -106,6 +107,21 @@ export function Hero() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Dots */}
+        <div className="mt-12 flex justify-start gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Ir para slide ${i + 1}`}
+              onClick={() => emblaApi?.scrollTo(i)}
+              className={cn(
+                "h-2.5 rounded-full transition-all",
+                selected === i ? "w-9 bg-lae-ink" : "w-2.5 bg-lae-ink/30",
+              )}
+            />
+          ))}
         </div>
       </div>
     </section>

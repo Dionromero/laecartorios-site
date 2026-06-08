@@ -9,7 +9,7 @@ interface Stat {
 
 const STATS: Stat[] = [
   { to: 200, prefix: "+", label: "Cartórios atendidos" },
-  { to: 15, suffix: " anos", label: "De especialização" },
+  { to: 3, suffix: " anos", label: "De especialização" },
   { to: 100, suffix: "%", label: "Conformidade" },
 ];
 
