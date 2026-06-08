@@ -1,30 +1,48 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { LaeLogo } from "./lae-logo";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-lae-ink/10 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link href="/" aria-label="LAE Cartórios — Página inicial">
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b backdrop-blur-md transition-all duration-300",
+        scrolled
+          ? "h-24 border-lae-ink/10 bg-background/90 shadow-[0_4px_24px_-12px_rgba(22,24,24,0.25)]"
+          : "h-36 border-transparent bg-background/70",
+      )}
+    >
+      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-10">
+        <Link
+          href="/"
+          aria-label="LAE Cartórios — Página inicial"
+          className="transition-transform duration-300 hover:scale-[1.02]"
+        >
           <LaeLogo />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {siteConfig.nav.map((item, idx) => (
-            <div key={item.href} className="flex items-center gap-7">
+            <div key={item.href} className="flex items-center gap-9">
               <Link
                 href={item.href}
-                className="nav-link text-sm font-medium text-lae-ink transition-colors hover:text-lae-amber-deep"
+                className="nav-link text-[15px] font-medium tracking-wide text-lae-ink transition-colors hover:text-lae-amber-deep"
                 {...("external" in item && item.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
@@ -32,21 +50,21 @@ export function Header() {
                 {item.label}
               </Link>
               {idx < siteConfig.nav.length - 1 && (
-                <span className="text-lae-ink/25" aria-hidden>
+                <span className="text-lae-ink/15" aria-hidden>
                   |
                 </span>
               )}
             </div>
           ))}
-          <Button asChild size="sm" className="ml-1">
-            <a
-              href={siteConfig.contact.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Falar com a LAE
-            </a>
-          </Button>
+          <a
+            href={siteConfig.contact.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lae-cta-spin ml-2 inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[15px] font-semibold"
+          >
+            <MessageCircle className="size-4" />
+            Falar com a LAE
+          </a>
         </nav>
 
         {/* Mobile toggle */}
@@ -82,15 +100,16 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button asChild className="mt-2">
-            <a
-              href={siteConfig.contact.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Falar com a LAE
-            </a>
-          </Button>
+          <a
+            href={siteConfig.contact.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="lae-cta-spin mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold"
+          >
+            <MessageCircle className="size-4" />
+            Falar com a LAE
+          </a>
         </nav>
       </div>
     </header>
