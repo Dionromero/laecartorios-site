@@ -24,7 +24,7 @@ export function BlogSection() {
             Blog da LAE
           </h2>
           <div className="mx-auto mt-5 gold-rule" />
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-center text-base text-lae-stone">
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-base text-lae-stone">
             Análises, atualizações regulatórias e boas práticas para a gestão do
             seu cartório.
           </p>
@@ -65,15 +65,15 @@ export function BlogSection() {
                       >
                         {formatDate(post.date)} · {post.readingTime}
                       </time>
-                      <h3 className="mt-2 text-xl font-semibold leading-snug text-lae-ink transition-colors group-hover:text-lae-amber-deep">
+                      <h3 className="mt-2 text-lg font-semibold leading-snug text-lae-ink transition-colors group-hover:text-lae-amber-deep">
                         {post.title}
                       </h3>
-                      <p className="mt-2 line-clamp-3 text-base text-justify text-lae-stone">
+                      <p className="mt-2 line-clamp-3 text-sm text-lae-stone">
                         {post.excerpt}
                       </p>
                       <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-lae-amber-deep">
                         Saiba mais
-                        <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1 " />
+                        <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                       </span>
                     </CardContent>
                   </Card>

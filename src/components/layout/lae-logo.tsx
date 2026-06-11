@@ -7,25 +7,41 @@ interface LaeLogoProps {
 }
 
 export function LaeLogo({ className, variant = "default" }: LaeLogoProps) {
-  const ink = variant === "footer" ? "text-lae-ink" : "text-lae-ink";
+  const isFooter = variant === "footer";
+
   return (
-    <div className={cn("flex items-center gap-2.5", className)}>
+    <div className={cn("flex items-center gap-3", className)}>
       <Image
-        src="/logolae3.png"
+        src="/imagem/logolae3.png"
         alt="LAE Cartórios"
-        width={56}
-        height={64}
-        className="h-12 w-auto shrink-0"
+        width={72}
+        height={84}
+        className={cn("w-auto shrink-0", isFooter ? "h-12" : "h-20")}
         priority
       />
       <div className="flex flex-col leading-none">
-        <span className={cn("font-display text-2xl font-bold tracking-tight", ink)}>
+        <span
+          className={cn(
+            "font-display font-bold tracking-tight text-lae-ink",
+            isFooter ? "text-2xl" : "text-4xl",
+          )}
+        >
           LAE
         </span>
-        <span className={cn("mt-0.5 text-[10px] font-semibold tracking-[0.18em]", ink)}>
+        <span
+          className={cn(
+            "font-semibold tracking-[0.18em] text-lae-ink",
+            isFooter ? "mt-0.5 text-[10px]" : "mt-1 text-sm",
+          )}
+        >
           CARTÓRIOS
         </span>
-        <span className="mt-0.5 text-[7px] font-medium tracking-[0.15em] text-lae-stone">
+        <span
+          className={cn(
+            "font-medium tracking-[0.15em] text-lae-stone",
+            isFooter ? "mt-0.5 text-[7px]" : "mt-1 text-[9px]",
+          )}
+        >
           AUTORIDADE CONTÁBIL
           <br />
           PARA O EXTRAJUDICIAL.

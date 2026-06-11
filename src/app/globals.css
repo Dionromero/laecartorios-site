@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -24,62 +23,34 @@
   --lae-grad: linear-gradient(135deg, #deca71, #f8c44f, #b8861f);
 
   /* shadcn tokens — base CLARA */
+  --background: oklch(0.992 0.002 80);
+  --foreground: oklch(0.16 0.004 60);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.16 0.004 60);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.16 0.004 60);
 
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.82 0.135 80);
+  --primary-foreground: oklch(0.16 0.004 60);
 
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.96 0.012 70);
+  --secondary-foreground: oklch(0.22 0.006 60);
 
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted: oklch(0.96 0.008 75);
+  --muted-foreground: oklch(0.44 0.008 60);
 
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.93 0.06 80);
+  --accent-foreground: oklch(0.22 0.006 60);
 
   --destructive: oklch(0.577 0.245 27.325);
 
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.9 0.008 70);
+  --input: oklch(0.9 0.008 70);
+  --ring: oklch(0.82 0.135 80);
 
   --radius: 0.625rem;
-
-  --background: oklch(1 0 0);
-
-  --foreground: oklch(0.145 0 0);
-
-  --chart-1: oklch(0.87 0 0);
-
-  --chart-2: oklch(0.556 0 0);
-
-  --chart-3: oklch(0.439 0 0);
-
-  --chart-4: oklch(0.371 0 0);
-
-  --chart-5: oklch(0.269 0 0);
-
-  --sidebar: oklch(0.985 0 0);
-
-  --sidebar-foreground: oklch(0.145 0 0);
-
-  --sidebar-primary: oklch(0.205 0 0);
-
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-
-  --sidebar-accent: oklch(0.97 0 0);
-
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-
-  --sidebar-border: oklch(0.922 0 0);
-
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 @theme inline {
@@ -117,34 +88,17 @@
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 14px);
 
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
 
   html {
     scroll-behavior: smooth;
-    @apply font-sans;
   }
 
   body {
@@ -247,36 +201,183 @@
   .prose-lae img { @apply my-8 rounded-lg; }
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+@layer utilities {
+  /* ===== Logo dourada brilhante (header preto) ===== */
+
+  /* Texto "LAE" com gradiente dourado + brilho pulsante */
+  .lae-gold-text {
+    background: linear-gradient(180deg, #f6e7a8 0%, #e8c860 45%, #b8861f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: lae-pulse 2.6s ease-in-out infinite;
+  }
+
+  @keyframes lae-pulse {
+    0%, 100% { opacity: 0.85; filter: brightness(1); }
+    50% { opacity: 1; filter: brightness(1.18); }
+  }
+
+  /* Reflexo varrendo o texto (sheen) */
+  .lae-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .lae-shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(255, 253, 240, 0.65) 50%,
+      transparent 65%
+    );
+    transform: translateX(-120%);
+    animation: lae-sweep 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes lae-sweep {
+    0%, 100% { transform: translateX(-120%); }
+    /* fica parado a maior parte do tempo, varre rápido */
+    60% { transform: translateX(-120%); }
+    80% { transform: translateX(120%); }
+  }
+
+  /* Brilho dourado pulsante no brasão (imagem PNG) */
+  .lae-brasao-glow {
+    animation: lae-glow 3s ease-in-out infinite;
+  }
+  @keyframes lae-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 2px rgba(232, 200, 96, 0.3))
+              brightness(1);
+    }
+    50% {
+      filter: drop-shadow(0 0 8px rgba(232, 200, 96, 0.7))
+              brightness(1.12);
+    }
+  }
+
+  /* Respeita quem prefere menos animação */
+  @media (prefers-reduced-motion: reduce) {
+    .lae-gold-text,
+    .lae-shine::after,
+    .lae-brasao-glow {
+      animation: none;
+    }
+  }
+}
+
+/* ===== Botão com borda dourada girando (CTA do header) ===== */
+@property --lae-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes lae-rotate-border {
+  to {
+    --lae-angle: 360deg;
+  }
+}
+
+@layer utilities {
+  .lae-cta-spin {
+    position: relative;
+    color: var(--lae-amber-deep);
+    background-color: #ffffff;
+    border: 2px solid transparent;
+    background-image:
+      linear-gradient(#ffffff, #ffffff),
+      conic-gradient(
+        from var(--lae-angle),
+        #b8861f,
+        #f8c44f,
+        #f6e7a8,
+        #f8c44f,
+        #b8861f
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: lae-rotate-border 3s linear infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  }
+  .lae-cta-spin:hover {
+    transform: translateY(-1px);
+    color: var(--lae-ink);
+    box-shadow: 0 6px 20px -8px rgba(248, 196, 79, 0.6);
+  }
+  .lae-cta-spin:active {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lae-cta-spin {
+      animation: none;
+    }
+  }
+}
+
+/* ===== Entrada do texto do hero (desliza da esquerda, em sequência) ===== */
+@keyframes lae-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@layer utilities {
+  .lae-slide-in {
+    animation: lae-slide-in-left 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lae-slide-in {
+      animation: none;
+    }
+  }
+}
+/* ===== Glows flutuantes do hero ===== */
+@keyframes lae-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -25px) scale(1.08); }
+  66% { transform: translate(-15px, 15px) scale(0.95); }
+}
+@keyframes lae-float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 20px) scale(1.1); }
+}
+
+@layer utilities {
+  .lae-float { animation: lae-float 8s ease-in-out infinite; }
+  .lae-float-slow { animation: lae-float-slow 10s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lae-float, .lae-float-slow { animation: none; }
+  }
+}
+
+
+/* ===== Luzes volumétricas do hero (god rays) ===== */
+@keyframes lae-ray-pulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(1); }
+  50% { opacity: 0.6; transform: scaleY(1.08); }
+}
+@keyframes lae-ray-pulse-2 {
+  0%, 100% { opacity: 0.25; transform: scaleY(1.05); }
+  50% { opacity: 0.5; transform: scaleY(1); }
+}
+
+@layer utilities {
+  .lae-ray { animation: lae-ray-pulse 7s ease-in-out infinite; transform-origin: top center; }
+  .lae-ray-2 { animation: lae-ray-pulse-2 9s ease-in-out infinite; transform-origin: top center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lae-ray, .lae-ray-2 { animation: none; }
+  }
 }

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { ArrowDownRight } from "lucide-react";
 import { getAllPosts } from "@/lib/content";
-import { BlogList } from "./blog-list";
+import { NoticiasList } from "./noticias-list";
 
 export const metadata: Metadata = {
-  title: "Blog da LAE",
+  title: "Notícias",
   description:
-    "Análises, atualizações regulatórias e boas práticas para a gestão do seu cartório.",
+    "Todas as notícias, análises e atualizações regulatórias da LAE Cartórios para a gestão do seu cartório.",
 };
 
-export default function BlogIndexPage() {
+export default function NoticiasPage() {
   const posts = getAllPosts();
 
   return (
@@ -24,12 +24,12 @@ export default function BlogIndexPage() {
             aria-hidden="true"
           />
           <p className="mt-5 max-w-xl text-pretty text-base text-lae-stone">
-            Análises, atualizações regulatórias e boas práticas para a gestão do
-            seu cartório.
+            Todas as notícias, análises e atualizações regulatórias para a gestão
+            do seu cartório.
           </p>
         </header>
 
-        <BlogList posts={posts} />
+        <NoticiasList posts={posts} />
       </div>
     </div>
   );
