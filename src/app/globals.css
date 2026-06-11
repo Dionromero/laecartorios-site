@@ -342,3 +342,42 @@
     }
   }
 }
+/* ===== Glows flutuantes do hero ===== */
+@keyframes lae-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -25px) scale(1.08); }
+  66% { transform: translate(-15px, 15px) scale(0.95); }
+}
+@keyframes lae-float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 20px) scale(1.1); }
+}
+
+@layer utilities {
+  .lae-float { animation: lae-float 8s ease-in-out infinite; }
+  .lae-float-slow { animation: lae-float-slow 10s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lae-float, .lae-float-slow { animation: none; }
+  }
+}
+
+
+/* ===== Luzes volumétricas do hero (god rays) ===== */
+@keyframes lae-ray-pulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(1); }
+  50% { opacity: 0.6; transform: scaleY(1.08); }
+}
+@keyframes lae-ray-pulse-2 {
+  0%, 100% { opacity: 0.25; transform: scaleY(1.05); }
+  50% { opacity: 0.5; transform: scaleY(1); }
+}
+
+@layer utilities {
+  .lae-ray { animation: lae-ray-pulse 7s ease-in-out infinite; transform-origin: top center; }
+  .lae-ray-2 { animation: lae-ray-pulse-2 9s ease-in-out infinite; transform-origin: top center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lae-ray, .lae-ray-2 { animation: none; }
+  }
+}
