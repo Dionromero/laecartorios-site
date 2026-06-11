@@ -4,12 +4,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StarField } from "./star-field";
 
 interface Slide {
   eyebrow: string;
-  /** Parte do título em preto/grafite */
   titleDark: string;
-  /** Parte final do título em dourado */
   titleGold: string;
   description: string;
   linkLabel: string;
@@ -81,102 +80,131 @@ export function Hero() {
     <section
       aria-label="Banner principal"
       className="relative overflow-hidden"
-      style={{ backgroundColor: "#f2b536" }}
+      style={{
+        background:
+          "radial-gradient(140% 120% at 50% -10%, #fffdf7 0%, #fbf3e0 55%, #f7ecd3 100%)",
+      }}
     >
-      {/* Arcos / curvas sutis no fundo */}
+      {/* Luzes volumétricas (god rays) descendo do topo */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -right-[10%] top-[-30%] h-[140%] w-[60%] rounded-full border border-white/15" />
-        <div className="absolute -right-[20%] top-[-10%] h-[120%] w-[55%] rounded-full border border-white/10" />
-        <div className="absolute left-[-15%] bottom-[-40%] h-[90%] w-[50%] rounded-full border border-black/5" />
-      </div>
-
-      {/* Brasão gigante (versão linha) como marca d'água à direita */}
-      <div className="pointer-events-none absolute right-[3%] top-1/2 hidden -translate-y-1/2 lg:block">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/imagem/logolae3.png"
-          alt=""
-          aria-hidden="true"
-          className="h-[42rem] w-auto opacity-80"
+        <div
+          className="lae-ray absolute -top-20 left-[20%] h-[120%] w-40 -rotate-[18deg] blur-2xl"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(248,196,79,0.55), rgba(248,196,79,0) 75%)",
+          }}
+        />
+        <div
+          className="lae-ray-2 absolute -top-20 left-[42%] h-[120%] w-56 -rotate-[12deg] blur-3xl"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(222,202,113,0.5), rgba(222,202,113,0) 70%)",
+          }}
+        />
+        <div
+          className="lae-ray absolute -top-20 right-[18%] h-[120%] w-44 rotate-[14deg] blur-2xl"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(248,196,79,0.45), rgba(248,196,79,0) 72%)",
+          }}
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-36">
+      {/* Glows dourados flutuando */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="lae-float absolute left-[10%] top-[8%] size-72 rounded-full bg-lae-amber/35 blur-[90px]" />
+        <div className="lae-float-slow absolute right-[8%] top-[15%] size-80 rounded-full bg-lae-gold/40 blur-[100px]" />
+        <div className="lae-float absolute bottom-[5%] left-[35%] size-72 rounded-full bg-lae-amber/30 blur-[110px]" />
+      </div>
+
+      {/* Brasão gigante de marca d'água, bem sutil */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-0 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/imagem/brasao-linha.png"
+          alt=""
+          aria-hidden="true"
+          className="h-[42rem] w-auto"
+        />
+      </div>
+
+      {/* Céu de constelações discretas no fundo */}
+      <StarField />
+
+      <div className="relative mx-auto flex min-h-[80vh] max-w-5xl flex-col justify-center px-6 pb-24 pt-32 lg:px-8 lg:pb-32 lg:pt-40">
+        {/* ===== Carrossel ===== */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {slides.map((slide, i) => (
               <div
                 key={i}
-                className="flex min-h-[26rem] min-w-0 flex-[0_0_100%] items-center"
+                className="flex min-h-[22rem] min-w-0 flex-[0_0_100%] flex-col items-center"
                 aria-roledescription="slide"
                 aria-label={`Slide ${i + 1} de ${slides.length}`}
               >
-                <div className="max-w-2xl text-left">
-                  {selected === i && (
-                    <>
-                      {/* Eyebrow com risquinho dourado embaixo */}
+                {selected === i && (
+                  <div className="mx-auto max-w-3xl text-center">
+                    <span
+                      className="lae-slide-in block text-xs font-semibold uppercase tracking-[0.3em] text-lae-amber-deep"
+                      style={{ animationDelay: "0ms" }}
+                    >
+                      {slide.eyebrow}
+                    </span>
+
+                    <h1
+                      className="lae-slide-in mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
+                      style={{ animationDelay: "120ms" }}
+                    >
+                      <span className="text-lae-ink">{slide.titleDark}</span>{" "}
                       <span
-                        className="lae-slide-in block text-xs font-semibold uppercase tracking-[0.3em] text-lae-ink/80"
-                        style={{ animationDelay: "0ms" }}
+                        className="bg-clip-text text-transparent"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(120deg, #e0a92e 0%, #c9881a 50%, #e8b94a 100%)",
+                        }}
                       >
-                        {slide.eyebrow}
+                        {slide.titleGold}
                       </span>
-                      <div
-                        className="lae-slide-in mt-3 h-1 w-12 rounded-full bg-lae-amber-deep"
-                        style={{ animationDelay: "100ms" }}
-                      />
+                    </h1>
 
-                      {/* Título: parte preta + parte dourada */}
-                      <h1
-                        className="lae-slide-in mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
-                        style={{ animationDelay: "200ms" }}
+                    <p
+                      className="lae-slide-in mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-lae-stone"
+                      style={{ animationDelay: "260ms" }}
+                    >
+                      {slide.description}
+                    </p>
+
+                    <div
+                      className="lae-slide-in mt-9 flex flex-wrap items-center justify-center gap-4"
+                      style={{ animationDelay: "400ms" }}
+                    >
+                      {/* Botão dourado principal */}
+                      <a
+                        href={slide.linkHref}
+                        className="group inline-flex items-center gap-2 rounded-xl bg-lae-amber px-7 py-4 text-[15px] font-semibold text-lae-ink shadow-lg transition-all hover:-translate-y-0.5 hover:brightness-105"
                       >
-                        <span className="text-lae-ink">{slide.titleDark}</span>{" "}
-                        <span className="text-lae-amber-deep">
-                          {slide.titleGold}
-                        </span>
-                      </h1>
+                        {slide.linkLabel}
+                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                      </a>
 
-                      <p
-                        className="lae-slide-in mt-7 max-w-xl text-pretty text-lg leading-relaxed text-lae-ink/85"
-                        style={{ animationDelay: "350ms" }}
+                      {/* Botão contorno claro secundário */}
+                      <a
+                        href={slide.ctaHref}
+                        className="group inline-flex items-center gap-3 rounded-xl border border-lae-ink/15 px-7 py-4 text-[15px] font-semibold text-lae-ink transition-all hover:-translate-y-0.5 hover:border-lae-amber hover:bg-lae-amber/5"
                       >
-                        {slide.description}
-                      </p>
-
-                      {/* CTAs */}
-                      <div
-                        className="lae-slide-in mt-10 flex flex-wrap items-center gap-6"
-                        style={{ animationDelay: "500ms" }}
-                      >
-                        {/* Link sublinhado dourado + seta */}
-                        <a
-                          href={slide.linkHref}
-                          className="group inline-flex items-center gap-2 border-b-2 border-lae-amber-deep pb-1 text-[15px] font-semibold text-lae-ink transition-colors hover:text-lae-amber-deep"
-                        >
-                          {slide.linkLabel}
-                          <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                        </a>
-
-                        {/* Botão preto com seta dourada */}
-                        <a
-                          href={slide.ctaHref}
-                          className="group inline-flex items-center gap-3 rounded-xl bg-lae-ink px-7 py-4 text-[15px] font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
-                        >
-                          {slide.ctaLabel}
-                          <ArrowRight className="size-4 text-lae-amber transition-transform group-hover:translate-x-1" />
-                        </a>
-                      </div>
-                    </>
-                  )}
-                </div>
+                        {slide.ctaLabel}
+                        <ArrowRight className="size-4 text-lae-amber transition-transform group-hover:translate-x-1" />
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Dots à esquerda */}
-        <div className="mt-14 flex justify-start gap-2.5">
+        {/* Dots centralizados */}
+        <div className="mt-12 flex justify-center gap-2.5">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -184,7 +212,7 @@ export function Hero() {
               onClick={() => emblaApi?.scrollTo(i)}
               className={cn(
                 "h-2.5 rounded-full transition-all",
-                selected === i ? "w-9 bg-lae-ink" : "w-2.5 bg-lae-ink/30",
+                selected === i ? "w-9 bg-lae-amber-deep" : "w-2.5 bg-lae-ink/25",
               )}
             />
           ))}
