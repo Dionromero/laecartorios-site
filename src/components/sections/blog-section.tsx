@@ -16,7 +16,7 @@ export function BlogSection() {
   const posts = getRecentPosts(3);
 
   return (
-    <section id="blog" className="bg-lae-paper py-20 lg:py-28">
+    <section id="blog" className="bg-lae-paper/70 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 text-center">
           <span className="section-eyebrow">Conteúdo</span>

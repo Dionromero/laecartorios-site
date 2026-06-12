@@ -1,11 +1,19 @@
-import { Play } from "lucide-react";
+"use client";
+
+import { useState, useRef } from "react";
+import { Play, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 
-interface AboutVideoProps {
-  youtubeId?: string;
-}
+export function AboutVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
 
-export function AboutVideo({ youtubeId = "7SnQy1xvTYY" }: AboutVideoProps) {
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+  };
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -31,19 +39,28 @@ export function AboutVideo({ youtubeId = "7SnQy1xvTYY" }: AboutVideoProps) {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="relative aspect-video overflow-hidden rounded-xl border border-lae-ink/10 bg-lae-amber/30 shadow-xl">
-              <iframe
-                src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
-                title="Apresentação institucional LAE Cartórios"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 size-full"
-                loading="lazy"
+            <div className="relative aspect-video overflow-hidden rounded-2xl border border-lae-ink/10 bg-lae-amber/30 shadow-2xl lg:scale-105">
+              <video
+                ref={videoRef}
+                src="/videos/lae.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 size-full object-cover"
               />
-              <div className="pointer-events-none absolute right-4 top-4 flex items-center gap-2 rounded-full bg-lae-ink px-3 py-1.5 text-xs font-medium text-white">
-                <Play className="size-3 fill-current" />
-                Vídeo institucional
-              </div>
+              <button
+                onClick={toggleMute}
+                aria-label={muted ? "Ativar som" : "Desativar som"}
+                className="absolute bottom-4 right-4 flex size-10 items-center justify-center rounded-full bg-lae-ink/80 text-white backdrop-blur transition-all hover:bg-lae-ink hover:scale-105"
+              >
+                {muted ? (
+                  <VolumeX className="size-5" />
+                ) : (
+                  <Volume2 className="size-5" />
+                )}
+              </button>
             </div>
           </Reveal>
         </div>

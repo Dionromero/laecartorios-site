@@ -18,7 +18,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // dark = topo (sobre o hero, céu); light = rolou (sobre seções claras)
   const dark = !scrolled;
 
   return (
@@ -29,8 +28,8 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 border-b backdrop-blur-md transition-all duration-500",
         scrolled
-          ? "h-20 border-lae-ink/10 shadow-[0_4px_24px_-12px_rgba(22,24,24,0.2)]"
-          : "h-28 border-transparent",
+          ? "h-24 border-lae-ink/10 shadow-[0_4px_24px_-12px_rgba(22,24,24,0.2)]"
+          : "h-36 border-transparent",
       )}
     >
       {/* Estrelas + constelação (só no topo, somem ao rolar) */}
@@ -38,37 +37,21 @@ export function Header() {
 
       {/* grid de 3 colunas: logo | nav centralizado | cta */}
       <div className="relative mx-auto grid h-full max-w-7xl grid-cols-2 items-center px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-10">
-        {/* Logo (esquerda) — texto, sem imagem */}
+        {/* Logo (esquerda) — imagem única */}
         <Link
           href="/"
           aria-label="LAE Cartórios — Página inicial"
-          className="flex flex-col justify-self-start leading-none transition-transform duration-300 hover:scale-[1.02]"
+          className="flex items-center justify-self-start transition-transform duration-300 hover:scale-[1.02]"
         >
-          <span
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/imagem/logolae2.png"
+            alt="LAE Cartórios — Autoridade contábil para o extrajudicial"
             className={cn(
-              "font-display text-2xl font-bold tracking-tight transition-colors duration-500",
-              "text-lae-ink",
+              "w-auto transition-all duration-500",
+              scrolled ? "h-16" : "h-24",
             )}
-          >
-            LAE{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(110deg, #f8c44f 0%, #d99f1f 45%, #b8861f 70%, #f0c652 100%)",
-              }}
-            >
-              Cartórios
-            </span>
-          </span>
-          <span
-            className={cn(
-              "mt-1 text-[9px] font-semibold uppercase tracking-[0.18em] transition-colors duration-500",
-              "text-lae-stone",
-            )}
-          >
-            Autoridade contábil para o extrajudicial
-          </span>
+          />
         </Link>
 
         {/* Nav centralizado */}
@@ -77,10 +60,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={cn(
-                "nav-link text-[15px] font-medium transition-colors duration-500 hover:text-lae-amber-deep",
-                "text-lae-ink",
-              )}
+              className="nav-link text-[15px] font-medium text-lae-ink transition-colors duration-500 hover:text-lae-amber-deep"
               {...("external" in item && item.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
@@ -105,10 +85,7 @@ export function Header() {
 
         {/* Mobile toggle */}
         <button
-          className={cn(
-            "justify-self-end rounded-md p-2 transition-colors duration-500 lg:hidden",
-            "text-lae-ink",
-          )}
+          className="justify-self-end rounded-md p-2 text-lae-ink transition-colors duration-500 lg:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -121,8 +98,7 @@ export function Header() {
       <div
         style={{ backgroundColor: "#ffffff" }}
         className={cn(
-          "relative overflow-hidden border-t lg:hidden",
-          "border-lae-ink/10",
+          "relative overflow-hidden border-t border-lae-ink/10 lg:hidden",
           open ? "max-h-96" : "max-h-0",
           "transition-[max-height] duration-300 ease-in-out",
         )}
@@ -133,10 +109,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-3 text-base font-medium transition-colors hover:bg-lae-amber/10 hover:text-lae-amber-deep",
-                "text-lae-ink",
-              )}
+              className="rounded-md px-3 py-3 text-base font-medium text-lae-ink transition-colors hover:bg-lae-amber/10 hover:text-lae-amber-deep"
               {...("external" in item && item.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}

@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function TaglineStars() {
   return (
-    <section className="bg-lae-paper py-16">
+    <section className="bg-lae-paper/70 py-16">
       <Reveal>
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
           <div

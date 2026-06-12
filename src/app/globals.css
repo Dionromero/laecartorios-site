@@ -381,3 +381,61 @@
     .lae-ray, .lae-ray-2 { animation: none; }
   }
 }
+
+
+
+/* ===== Estrelas cadentes laterais (gourmet) ===== */
+.lae-shooter {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: #f8c44f;
+  opacity: 0;
+  box-shadow: 0 0 6px 1px rgba(248, 196, 79, 0.8);
+}
+/* o rastro */
+.lae-shooter::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 90px;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(248, 196, 79, 0.9), transparent);
+}
+.lae-shooter-left {
+  animation-name: lae-shoot-left;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+.lae-shooter-left::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(248, 196, 79, 0.9), transparent);
+}
+.lae-shooter-right {
+  animation-name: lae-shoot-right;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+.lae-shooter-right::after {
+  left: 0;
+}
+
+/* cruza em diagonal descendo. Só o trecho final do ciclo "dispara" (resto fica invisível -> espaçado) */
+@keyframes lae-shoot-left {
+  0% { opacity: 0; transform: translate(0, 0); }
+  70% { opacity: 0; transform: translate(0, 0); }
+  73% { opacity: 1; }
+  100% { opacity: 0; transform: translate(180px, 120px); }
+}
+@keyframes lae-shoot-right {
+  0% { opacity: 0; transform: translate(0, 0); }
+  70% { opacity: 0; transform: translate(0, 0); }
+  73% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-180px, 120px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lae-shooter { animation: none !important; opacity: 0 !important; }
+}
