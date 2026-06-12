@@ -265,8 +265,18 @@ function MiniConstellation({ c, baseIndex }: { c: Constellation; baseIndex: numb
             strokeWidth={0.5}
             strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.5 }}
-            transition={{ delay: 0.8 + baseIndex * 0.15 + i * 0.08, duration: 0.6 }}
+            animate={{
+              pathLength: [0, 1, 1, 1, 0],
+              opacity: [0, 0.5, 0.5, 0.5, 0],
+            }}
+            transition={{
+              duration: 7,
+              times: [0, 0.55, 0.75, 0.9, 1],
+              delay: baseIndex * 0.15 + i * 0.08,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatDelay: 0,
+            }}
           />
         ))}
         {c.stars.map((s, i) => {

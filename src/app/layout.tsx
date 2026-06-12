@@ -3,6 +3,7 @@ import { Inter, Fraunces, Geist } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
+import { AuroraBackground } from "@/components/layout/aurora-background";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -62,6 +63,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={cn(inter.variable, fraunces.variable, "font-sans", geist.variable)}>
       <body className="font-sans">
+        <AuroraBackground />
         <Header />
         <main>{children}</main>
         <Footer />

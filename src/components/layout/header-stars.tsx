@@ -74,8 +74,18 @@ export function HeaderStars({ visible }: { visible: boolean }) {
             stroke="#deca71"
             strokeWidth={0.5}
             strokeLinecap="round"
-            animate={{ opacity: [0.4, 0.15, 0.4] }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "mirror" }}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{
+              pathLength: [0, 1, 1, 1, 0],
+              opacity: [0, 0.4, 0.4, 0.4, 0],
+            }}
+            transition={{
+              duration: 7,
+              times: [0, 0.55, 0.75, 0.9, 1],
+              delay: i * 0.08,
+              ease: "easeInOut",
+              repeat: Infinity,
+            }}
           />
         ))}
         {C_STARS.map((s, i) => (

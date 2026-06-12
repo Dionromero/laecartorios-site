@@ -28,7 +28,7 @@ interface SolutionsSectionProps {
 
 export function SolutionsSection({ services }: SolutionsSectionProps) {
   return (
-    <section id="solucoes" className="bg-background py-20 lg:py-28">
+    <section id="solucoes" className="bg-background/70 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Coluna esquerda — Como podemos ajudar */}
@@ -59,7 +59,7 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
           <Reveal delay={120}>
             <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
               Soluções 360°{" "}
-              <span className="block heading-accent">para a sua Gestão.</span>
+              <span className="block heading-accent">para a sua Gestão</span>
             </h2>
 
             <p className="mt-8 text-base text-justify leading-relaxed text-lae-stone">

@@ -15,7 +15,7 @@ const STATS: Stat[] = [
 
 export function StatsBar() {
   return (
-    <section className="border-y border-lae-ink/10 bg-lae-paper">
+    <section className="border-y border-lae-ink/10 bg-lae-paper/70">
       <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-lae-ink/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         {STATS.map((stat) => (
           <div key={stat.label} className="px-6 py-10 text-center">

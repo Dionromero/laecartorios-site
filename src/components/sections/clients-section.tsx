@@ -18,7 +18,7 @@ export function ClientsSection({ clients }: ClientsSectionProps) {
   if (clients.length === 0) return null;
 
   return (
-    <section className="bg-background py-20 lg:py-24">
+    <section className="bg-background/70 py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 text-center">
           <span className="section-eyebrow">Quem confia</span>
