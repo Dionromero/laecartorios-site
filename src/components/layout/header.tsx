@@ -6,6 +6,7 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { HeaderStars } from "./header-stars";
+import { Button } from "@/components/ui/button";
 
 export function Header() {
   const [open, setOpen] = useState(false);
