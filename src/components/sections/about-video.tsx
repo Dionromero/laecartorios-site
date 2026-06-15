@@ -21,7 +21,7 @@ export function AboutVideo() {
           <Reveal>
             <span className="section-eyebrow">Sobre a LAE</span>
             <h2 className="mt-3 text-balance font-display text-3xl font-bold tracking-tight text-lae-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Especialistas em contabilidade cartorial há mais de uma década.
+              Especialistas em contabilidade cartorial.
             </h2>
             <div className="mt-4 gold-rule" />
             <div className="mt-6 space-y-4 text-base text-justify leading-relaxed text-lae-stone">
