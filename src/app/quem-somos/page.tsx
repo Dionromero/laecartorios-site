@@ -34,7 +34,7 @@ export default function QuemSomosPage() {
               Quem <span className="heading-accent">somos</span>
             </h1>
             <ArrowDownRight className="mt-2 size-6 text-lae-stone/50" aria-hidden="true" />
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-lae-stone">
+            <div className="mt-6 space-y-4 text-base  text-justify leading-relaxed text-lae-stone">
               <p>
                 A LAE Cartórios é uma assessoria contábil especializada no setor
                 extrajudicial brasileiro. Atendemos tabelionatos, registros civis,
