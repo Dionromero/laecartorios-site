@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { ArrowDownRight, MapPin } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
@@ -12,14 +11,9 @@ export const metadata: Metadata = {
 
 const diretores = [
   {
-    nome: "Diretor 1",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    nome: "Diretor",
+    bio: "Neste percurso, é impossível não destacar a liderança inspiradora do Dr. Evandro de Oliveira , cuja experiência e serenidade foram fundamentais para conduzir decisões com sabedoria, mantendo vivos os valores que sustentam a instituição.",
     foto: "/diretores/diretor-1.jpg",
-  },
-  {
-    nome: "Diretor 2",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    foto: "/diretores/diretor-2.jpg",
   },
 ];
 
@@ -33,8 +27,11 @@ export default function QuemSomosPage() {
             <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-lae-ink sm:text-5xl">
               Quem <span className="heading-accent">somos</span>
             </h1>
-            <ArrowDownRight className="mt-2 size-6 text-lae-stone/50" aria-hidden="true" />
-            <div className="mt-6 space-y-4 text-base  text-justify leading-relaxed text-lae-stone">
+            <ArrowDownRight
+              className="mt-2 size-6 text-lae-stone/50"
+              aria-hidden="true"
+            />
+            <div className="mt-6 space-y-4 text-justify text-base leading-relaxed text-lae-stone">
               <p>
                 A LAE Cartórios é uma assessoria contábil especializada no setor
                 extrajudicial brasileiro. Atendemos tabelionatos, registros civis,
@@ -42,10 +39,10 @@ export default function QuemSomosPage() {
                 contabilidade, fiscal e administrativo.
               </p>
               <p>
-                Combinamos rigor técnico, otimização tributária dentro da legalidade
-                e atendimento exclusivo — sem call center, sem tickets, sem
-                retrabalho. Cada cartório fala diretamente com quem entende da sua
-                realidade.
+                Combinamos rigor técnico, otimização tributária dentro da
+                legalidade e atendimento exclusivo — sem call center, sem tickets,
+                sem retrabalho. Cada cartório fala diretamente com quem entende da
+                sua realidade.
               </p>
             </div>
           </Reveal>
@@ -60,44 +57,46 @@ export default function QuemSomosPage() {
           </Reveal>
         </section>
 
-        {/* ===== Missão / Visão / Valores ===== */}
-        <section className="mt-20 grid gap-10 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-12">
-          <Reveal>
-            <PilarCard
-              titulo="Missão"
-              texto="Desenvolver soluções contábeis, administrativas e jurídicas voltadas exclusivamente ao setor extrajudicial, com excelência técnica, inovação, eficiência operacional, segurança da informação e atendimento personalizado, sempre em estrita observância à legalidade e à ética profissional."
-            />
-          </Reveal>
-          <Reveal delay={100}>
-            <PilarCard
-              titulo="Valores"
-              texto="Ética, transparência, comprometimento, confidencialidade e busca contínua pela excelência. Princípios que orientam cada entrega e cada relação com os cartórios que atendemos."
-            />
-          </Reveal>
-          <Reveal>
-            <PilarCard
-              titulo="Visão"
-              texto="Ser referência nacional na prestação de serviços especializados a cartórios, reconhecida pela qualidade técnica, confiabilidade, conformidade normativa e respeito às boas práticas profissionais."
-            />
-          </Reveal>
+        {/* ===== Missão / Valores / Visão ===== */}
+        <section className="mt-20">
+          <div className="grid items-stretch gap-6 md:grid-cols-3">
+            <Reveal className="h-full">
+              <PilarCard
+                titulo="Missão"
+                texto="Desenvolver soluções contábeis, administrativas e jurídicas voltadas exclusivamente ao setor extrajudicial, com excelência técnica, inovação, eficiência operacional, segurança da informação e atendimento personalizado, sempre em estrita observância à legalidade e à ética profissional."
+              />
+            </Reveal>
+            <Reveal delay={100} className="h-full">
+              <PilarCard
+                titulo="Valores"
+                texto="Ética, transparência, comprometimento, confidencialidade e busca contínua pela excelência. Princípios que orientam cada entrega e cada relação com os cartórios que atendemos."
+              />
+            </Reveal>
+            <Reveal delay={200} className="h-full">
+              <PilarCard
+                titulo="Visão"
+                texto="Ser referência nacional na prestação de serviços especializados a cartórios, reconhecida pela qualidade técnica, confiabilidade, conformidade normativa e respeito às boas práticas profissionais."
+              />
+            </Reveal>
+          </div>
 
           {/* ===== Localização ===== */}
-          <Reveal delay={100}>
-            <div>
+          <Reveal>
+            <div className="mx-auto mt-16 max-w-3xl text-center">
               <h2 className="font-display text-2xl font-bold tracking-tight text-lae-ink">
                 Localização
               </h2>
-              <div className="mt-5 overflow-hidden rounded-xl border border-lae-ink/10">
+              <div className="mt-5 overflow-hidden rounded-xl border border-lae-ink/10 shadow-sm">
                 <iframe
                   title="Localização da LAE Cartórios"
                   src="https://www.google.com/maps?q=Rua+Solim%C3%B5es+849+Merc%C3%AAs+Curitiba+PR&output=embed"
-                  className="aspect-[16/10] w-full"
+                  className="aspect-[16/9] w-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-              <p className="mt-3 flex items-start gap-2 text-sm text-lae-stone">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
+              <p className="mt-3 flex items-center justify-center gap-2 text-sm text-lae-stone">
+                <MapPin className="size-4 shrink-0 text-lae-amber-deep" />
                 {siteConfig.contact.address}
               </p>
             </div>
@@ -108,9 +107,12 @@ export default function QuemSomosPage() {
         <section className="mt-24">
           <Reveal>
             <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
-              Nossos <span className="heading-accent">Diretores</span>
+              Nosso <span className="heading-accent">Diretor</span>
             </h2>
-            <ArrowDownRight className="mt-2 size-6 text-lae-stone/50" aria-hidden="true" />
+            <ArrowDownRight
+              className="mt-2 size-6 text-lae-stone/50"
+              aria-hidden="true"
+            />
           </Reveal>
 
           <div className="mt-12 space-y-16">
@@ -132,7 +134,7 @@ export default function QuemSomosPage() {
                       {d.nome}
                     </h3>
                     <div className="mt-3 h-1 w-12 rounded-full bg-lae-amber-deep" />
-                    <p className="mt-5 text-base leading-relaxed text-lae-stone">
+                    <p className="mt-5 text-justify text-base leading-relaxed text-lae-stone">
                       {d.bio}
                     </p>
                   </div>
@@ -148,11 +150,13 @@ export default function QuemSomosPage() {
 
 function PilarCard({ titulo, texto }: { titulo: string; texto: string }) {
   return (
-    <div>
-      <span className="inline-block rounded-full bg-lae-amber px-6 py-2 font-display text-lg font-bold text-lae-ink shadow-sm">
+    <div className="flex h-full flex-col rounded-2xl border border-lae-ink/10 bg-card p-7 shadow-xl transition-all hover:-translate-y-1 hover:border-lae-amber/40 hover:shadow-lg">
+      <span className="inline-block self-start rounded-full bg-lae-amber px-6 py-2 font-display text-lg font-bold text-lae-ink shadow-sm">
         {titulo}
       </span>
-      <p className="mt-5 text-base leading-relaxed text-lae-stone">{texto}</p>
+      <p className="mt-5 text-justify text-base leading-relaxed text-lae-stone">
+        {texto}
+      </p>
     </div>
   );
 }
