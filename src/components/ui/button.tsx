@@ -5,23 +5,24 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   // base
-  "group/button relative isolate inline-flex shrink-0 items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-lg text-sm font-medium transition-all outline-none select-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button relative isolate inline-flex shrink-0 items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-xl text-sm font-semibold tracking-tight transition-all duration-300 ease-out outline-none select-none focus-visible:ring-2 focus-visible:ring-lae-amber/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:translate-y-0 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-300 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        // Dourado sólido — CTA principal. Brilho varre no hover.
+        // Dourado — CTA principal. Gradiente sutil + brilho varre + elevação.
         default:
-          "bg-lae-amber text-lae-ink shadow-sm hover:shadow-md hover:brightness-105 before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/45 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
-        // Grafite — CTA escuro sobre fundo âmbar (hero)
-        ink: "bg-lae-ink text-white shadow-sm hover:bg-lae-stone hover:shadow-md before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
-        // Contorno — secundário elegante
+          "bg-gradient-to-b from-lae-amber to-lae-gold text-lae-ink shadow-[0_2px_12px_-2px_rgba(248,196,79,0.5)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-4px_rgba(248,196,79,0.6)] hover:brightness-[1.03] before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/50 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
+        // Grafite — CTA escuro. Elevação + brilho sutil.
+        ink: "bg-gradient-to-b from-lae-ink to-[#0f1010] text-white shadow-[0_2px_12px_-2px_rgba(22,24,24,0.4)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-4px_rgba(22,24,24,0.5)] before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-lae-amber/25 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
+        // Contorno — secundário elegante, fundo dourado sutil cresce
         outline:
-          "border border-lae-ink/15 bg-transparent text-lae-ink hover:border-lae-amber hover:bg-lae-amber/10",
+          "border border-lae-ink/15 bg-transparent text-lae-ink shadow-sm hover:-translate-y-0.5 hover:border-lae-amber/60 hover:bg-lae-amber/10 hover:shadow-[0_6px_18px_-6px_rgba(248,196,79,0.4)]",
         // Contorno dourado — secundário sobre fundo claro
-        gold: "border border-lae-amber-deep/40 bg-transparent text-lae-amber-deep hover:border-lae-amber-deep hover:bg-lae-amber/10",
+        gold: "border border-lae-amber-deep/40 bg-transparent text-lae-amber-deep shadow-sm hover:-translate-y-0.5 hover:border-lae-amber-deep hover:bg-lae-amber/10 hover:shadow-[0_6px_18px_-6px_rgba(248,196,79,0.4)]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/70",
-        ghost: "text-lae-ink hover:bg-lae-amber/10 hover:text-lae-amber-deep",
+          "bg-secondary text-secondary-foreground shadow-sm hover:-translate-y-0.5 hover:bg-secondary/70",
+        ghost:
+          "text-lae-ink hover:bg-lae-amber/10 hover:text-lae-amber-deep",
         link: "text-lae-amber-deep underline-offset-4 hover:underline",
       },
       size: {
@@ -62,7 +63,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {asChild ? (
           children
         ) : (
-          <span className="relative z-10 inline-flex items-center gap-2">
+          <span className="relative z-10 inline-flex items-center gap-2 transition-transform duration-300 group-hover/button:[&_svg:last-child]:translate-x-0.5">
             {children}
           </span>
         )}
