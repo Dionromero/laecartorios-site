@@ -13,6 +13,7 @@ import {
 import { getAllServices } from "@/lib/content";
 import type { Service } from "@/lib/content";
 import { Reveal } from "@/components/ui/reveal";
+import { CardSky } from "@/components/ui/card-sky";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -77,7 +78,7 @@ export default function ServicosPage() {
             const Icon = ICON_MAP[service.icon];
             return (
               <Reveal key={service.slug} delay={i * 100}>
-                <div className="group flex h-full flex-col rounded-2xl border border-lae-ink/10 bg-card p-8 transition-all hover:-translate-y-1 hover:border-lae-amber/50 hover:shadow-xl">
+                <div className="group flex h-full flex-col rounded-2xl shadow-xl border border-lae-ink/10 bg-card p-8 transition-all hover:-translate-y-1 hover:border-lae-amber/50 hover:shadow-xl">
                   <div className="flex size-14 items-center justify-center rounded-xl bg-lae-amber/15 ring-1 ring-lae-amber/30 transition-colors group-hover:bg-lae-amber/25">
                     <Icon className="size-7 text-lae-amber-deep" />
                   </div>
@@ -104,11 +105,18 @@ export default function ServicosPage() {
 
         {/* ===== CTA ===== */}
         <Reveal>
-          <div className="mt-16 flex flex-col items-center gap-5 rounded-2xl bg-lae-ink px-8 py-12 text-center">
-            <h2 className="max-w-2xl font-display text-2xl font-bold text-white sm:text-3xl">
+          <div
+            className="relative mt-16 flex flex-col items-center gap-5 overflow-hidden rounded-2xl px-8 py-12 text-center"
+            style={{
+              background:
+                "radial-gradient(120% 140% at 50% -20%, #24211d 0%, #1b1916 55%, #121110 100%)",
+            }}
+          >
+            <CardSky />
+            <h2 className="relative max-w-2xl font-display text-2xl font-bold text-white sm:text-3xl">
               Solicite hoje um diagnóstico técnico com nossos especialistas.
             </h2>
-            <p className="max-w-xl text-sm leading-relaxed text-white/70">
+            <p className="relative max-w-xl text-sm leading-relaxed text-white/70">
               Atendimento exclusivo, onboarding personalizado e a tranquilidade de
               uma gestão blindada com prestação de contas impecável.
             </p>
@@ -116,7 +124,7 @@ export default function ServicosPage() {
               href={siteConfig.contact.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-2 rounded-xl bg-lae-amber px-7 py-4 text-[15px] font-semibold text-lae-ink transition-all hover:-translate-y-0.5 hover:brightness-105"
+              className="relative mt-2 inline-flex items-center gap-2 rounded-xl bg-lae-amber px-7 py-4 text-[15px] font-semibold text-lae-ink transition-all hover:-translate-y-0.5 hover:brightness-105"
             >
               Solicitar diagnóstico
               <ArrowRight className="size-4" />
