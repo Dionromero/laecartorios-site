@@ -77,11 +77,12 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
                   href={siteConfig.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-xl bg-lae-amber px-6 py-3 text-[15px] font-semibold text-lae-ink shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:brightness-105"
                 >
                   Solicitar diagnóstico
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="secondary">
                 <a href="/servicos">Ver todos os serviços</a>
               </Button>
             </div>
