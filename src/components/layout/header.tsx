@@ -6,7 +6,7 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { HeaderStars } from "./header-stars";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -77,7 +77,7 @@ export function Header() {
             href={siteConfig.contact.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-xl bg-lae-amber px-6 py-3 text-[15px] font-semibold text-lae-ink shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:brightness-105"
+            className={buttonVariants({ variant: "primary", size: "default" })}
           >
             <MessageCircle className="size-4" />
             Falar com a LAE
@@ -123,7 +123,7 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-lae-amber px-6 py-3 text-base font-semibold text-lae-ink"
+            className={buttonVariants({ variant: "primary", size: "default" })}
           >
             <MessageCircle className="size-4" />
             Falar com a LAE
