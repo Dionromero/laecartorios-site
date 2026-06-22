@@ -190,10 +190,14 @@ export function Hero() {
                       {/* Botão contorno claro secundário */}
                       <a
                         href={slide.ctaHref}
-                        className="group inline-flex items-center gap-3 rounded-xl border border-lae-ink/15 px-7 py-4 text-[15px] font-semibold text-lae-ink transition-all hover:-translate-y-0.5 hover:border-lae-amber hover:bg-lae-amber/5"
+                        className="group inline-flex items-center gap-3 rounded-xl border border-lae-ink/15 bg-amber-300/30 px-7 py-4 text-[15px] font-semibold tracking-wide text-lae-ink transition-all duration-500 hover:-translate-y-0.5 hover:border-lae-amber hover:bg-amber-200 hover:shadow-lg hover:shadow-lae-amber/10"
                       >
                         {slide.ctaLabel}
-                        <ArrowRight className="size-4 text-lae-amber transition-transform group-hover:translate-x-1" />
+
+                        {/* Ícone dentro de um círculo sólido que inverte as cores no hover */}
+                        <span className="inline-flex size-6 items-center justify-center rounded-full border border-lae-amber/40 bg-amber-100 transition-all duration-500 group-hover:border-lae-amber group-hover:bg-lae-amber group-hover:shadow-[0_0_12px] group-hover:shadow-lae-amber/20">
+                          <ArrowRight className="size-3 text-lae-amber transition-all duration-500 group-hover:translate-x-0.5 group-hover:text-white" />
+                        </span>
                       </a>
                     </div>
                   </div>
