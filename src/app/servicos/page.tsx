@@ -15,6 +15,7 @@ import type { Service } from "@/lib/content";
 import { Reveal } from "@/components/ui/reveal";
 import { CardSky } from "@/components/ui/card-sky";
 import { siteConfig } from "@/lib/site-config";
+import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Serviços",
@@ -124,7 +125,7 @@ export default function ServicosPage() {
               href={siteConfig.contact.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative mt-2 inline-flex items-center gap-2 rounded-xl bg-lae-amber px-7 py-4 text-[15px] font-semibold text-lae-ink transition-all hover:-translate-y-0.5 hover:brightness-105"
+              className={buttonVariants({ variant: "primary", size: "lg" })}
             >
               Solicitar diagnóstico
               <ArrowRight className="size-4" />
