@@ -8,7 +8,7 @@ import {
   ArrowDownRight,
   type LucideIcon,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/site-config";
 import type { Service } from "@/lib/content";
@@ -77,12 +77,12 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
                   href={siteConfig.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-xl bg-lae-amber px-6 py-3 text-[15px] font-semibold text-lae-ink shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:brightness-105"
+                  className={buttonVariants({ variant: "primary", size: "lg" })}
                 >
                   Solicitar diagnóstico
                 </a>
               </Button>
-              <Button asChild size="lg" variant="secondary">
+              <Button asChild size="lg" variant="ink">
                 <a href="/servicos">Ver todos os serviços</a>
               </Button>
             </div>
