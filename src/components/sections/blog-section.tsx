@@ -39,7 +39,7 @@ export function BlogSection() {
             {posts.map((post, i) => (
               <Reveal key={post.slug} delay={i * 100}>
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
-                  <Card className="flex h-full flex-col overflow-hidden">
+                  <Card className="flex h-full flex-col overflow-hidden shadow-lg transition-all hover:shadow-2xl">
                     <div className="relative aspect-[4/3] overflow-hidden bg-lae-amber/40">
                       {post.cover ? (
                         // eslint-disable-next-line @next/next/no-img-element
