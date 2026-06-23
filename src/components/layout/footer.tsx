@@ -146,7 +146,7 @@ export function Footer() {
             <img
               src="/imagem/logolae2.png"
               alt="LAE Cartórios"
-              className="h-28 w-auto opacity-90"
+              className="h-32 w-auto opacity-90"
             />
           </div>
         </div>
