@@ -179,22 +179,27 @@ export function Hero() {
                       style={{ animationDelay: "400ms" }}
                     >
                       {/* Botão dourado principal */}
-                      <a
-                        href={slide.linkHref}
-                        className="group inline-flex items-center gap-2 rounded-xl bg-lae-amber px-7 py-4 text-[15px] font-semibold text-lae-ink shadow-lg transition-all hover:-translate-y-0.5 hover:brightness-105"
-                      >
-                        {slide.linkLabel}
-                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                      </a>
+                    <a
+                      href={slide.linkHref}
+                      className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl bg-gradient-to-br from-lae-amber via-amber-300 to-lae-amber px-7 py-4 text-[15px] font-semibold tracking-wide text-lae-ink shadow-[0_4px_14px_0_rgba(212,175,55,0.3)] transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_-3px_rgba(212,175,55,0.5)] hover:brightness-105 border border-amber-300/80"
+                    >
+                      {/* Brilho interno sutil no hover */}
+                      <span className="absolute inset-0 rounded-xl bg-gradient-to-t from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                      <span className="relative">{slide.linkLabel}</span>
+
+                      <ArrowRight className="relative size-4 text-lae-ink transition-transform duration-500 group-hover:translate-x-1" />
+                    </a>
 
                       {/* Botão contorno claro secundário */}
-                      <a
-                        href={slide.ctaHref}
-                        className="group inline-flex items-center gap-3 rounded-xl border border-lae-ink/15 px-7 py-4 text-[15px] font-semibold text-lae-ink transition-all hover:-translate-y-0.5 hover:border-lae-amber hover:bg-lae-amber/5"
-                      >
-                        {slide.ctaLabel}
-                        <ArrowRight className="size-4 text-lae-amber transition-transform group-hover:translate-x-1" />
-                      </a>
+                    <a
+                      href={slide.ctaHref}
+                      className="group inline-flex items-center gap-3 rounded-xl border border-lae-ink/15 bg-amber-300/30 px-7 py-4 text-[15px] font-semibold tracking-wide text-lae-ink transition-all duration-500 hover:-translate-y-0.5 hover:border-lae-amber hover:bg-amber-200 hover:shadow-lg hover:shadow-lae-amber/10"
+                    >
+                      {slide.ctaLabel}
+
+                      <ArrowRight className="size-4 text-lae-ink transition-transform duration-500 group-hover:translate-x-1" />
+                    </a>
                     </div>
                   </div>
                 )}

@@ -9,20 +9,33 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Dourado — CTA principal. Gradiente sutil + brilho varre + elevação.
+        // Dourado — CTA principal (padrão). Gradiente sutil + brilho varre + borda joia.
         default:
-          "bg-gradient-to-b from-lae-amber to-lae-gold text-lae-ink shadow-[0_2px_12px_-2px_rgba(248,196,79,0.5)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-4px_rgba(248,196,79,0.6)] hover:brightness-[1.03] before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/50 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
+          "border border-amber-300/80 bg-gradient-to-b from-lae-amber to-lae-gold text-lae-ink shadow-[0_2px_12px_-2px_rgba(248,196,79,0.5)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-4px_rgba(248,196,79,0.6)] hover:brightness-[1.03] before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/50 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
+
+        // Primário premium — dourado mais intenso, com shimmer forte e brilho extra (efeito ourivesaria).
+        primary:
+          "border border-amber-300/80 bg-gradient-to-br from-lae-amber via-amber-300 to-lae-amber text-lae-ink shadow-[0_4px_14px_0_rgba(212,175,55,0.3)] hover:-translate-y-0.5 hover:shadow-[0_8px_25px_-3px_rgba(212,175,55,0.5)] hover:brightness-105 before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
+
         // Grafite — CTA escuro. Elevação + brilho sutil.
         ink: "bg-gradient-to-b from-lae-ink to-[#0f1010] text-white shadow-[0_2px_12px_-2px_rgba(22,24,24,0.4)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-4px_rgba(22,24,24,0.5)] before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-lae-amber/25 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-full",
+
         // Contorno — secundário elegante, fundo dourado sutil cresce
         outline:
           "border border-lae-ink/15 bg-transparent text-lae-ink shadow-sm hover:-translate-y-0.5 hover:border-lae-amber/60 hover:bg-lae-amber/10 hover:shadow-[0_6px_18px_-6px_rgba(248,196,79,0.4)]",
+
         // Contorno dourado — secundário sobre fundo claro
         gold: "border border-lae-amber-deep/40 bg-transparent text-lae-amber-deep shadow-sm hover:-translate-y-0.5 hover:border-lae-amber-deep hover:bg-lae-amber/10 hover:shadow-[0_6px_18px_-6px_rgba(248,196,79,0.4)]",
+
+        // Secundário suave — fundo âmbar claro, borda sutil, sombra dourada (o seu CTA secundário gourmet).
+        soft: "border border-lae-ink/15 bg-amber-300/30 text-lae-ink shadow-sm hover:-translate-y-0.5 hover:border-lae-amber hover:bg-amber-200 hover:shadow-lg hover:shadow-lae-amber/10",
+
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:-translate-y-0.5 hover:bg-secondary/70",
+
         ghost:
           "text-lae-ink hover:bg-lae-amber/10 hover:text-lae-amber-deep",
+
         link: "text-lae-amber-deep underline-offset-4 hover:underline",
       },
       size: {
