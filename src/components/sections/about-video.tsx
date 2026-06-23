@@ -8,6 +8,7 @@ export function AboutVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(false);
+  const [volume, setVolume] = useState(1);
 
   // Só inicia o vídeo depois que o site carregou (experiência mais fluida)
   useEffect(() => {
@@ -43,6 +44,23 @@ export function AboutVideo() {
     if (!v) return;
     v.muted = !v.muted;
     setMuted(v.muted);
+    // se desmutou e o volume estava em 0, sobe um pouco
+    if (!v.muted && v.volume === 0) {
+      v.volume = 0.5;
+      setVolume(0.5);
+    }
+  };
+
+  const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = videoRef.current;
+    if (!v) return;
+    const val = Number(e.target.value);
+    v.volume = val;
+    setVolume(val);
+    // ajusta o mudo conforme o volume
+    const shouldMute = val === 0;
+    v.muted = shouldMute;
+    setMuted(shouldMute);
   };
 
   return (
@@ -97,17 +115,30 @@ export function AboutVideo() {
                   )}
                 </button>
 
-                <button
-                  onClick={toggleMute}
-                  aria-label={muted ? "Ativar som" : "Desativar som"}
-                  className="pointer-events-auto flex size-10 items-center justify-center rounded-full bg-lae-ink/80 text-white backdrop-blur transition-all hover:scale-105 hover:bg-lae-ink"
-                >
-                  {muted ? (
-                    <VolumeX className="size-5" />
-                  ) : (
-                    <Volume2 className="size-5" />
-                  )}
-                </button>
+                <div className="pointer-events-auto flex items-center gap-2">
+                  <button
+                    onClick={toggleMute}
+                    aria-label={muted ? "Ativar som" : "Desativar som"}
+                    className="flex size-10 items-center justify-center rounded-full bg-lae-ink/80 text-white backdrop-blur transition-all hover:scale-105 hover:bg-lae-ink"
+                  >
+                    {muted ? (
+                      <VolumeX className="size-5" />
+                    ) : (
+                      <Volume2 className="size-5" />
+                    )}
+                  </button>
+
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.05}
+                    value={muted ? 0 : volume}
+                    onChange={handleVolume}
+                    aria-label="Volume"
+                    className="lae-volume h-1.5 w-20 cursor-pointer appearance-none rounded-full bg-white/40 accent-lae-amber"
+                  />
+                </div>
               </div>
 
               {/* Indicador central de play quando pausado */}
