@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
-import { LaeLogo } from "./lae-logo";
 
 export function Footer() {
   return (
     <footer className="border-t border-lae-ink/10 bg-lae-amber/25">
       <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
-        {/* Logo no topo — centralizado no mobile, à direita no desktop (via ordem) */}
+        {/* Brasão no topo — centralizado no mobile, à direita no desktop */}
         <div className="mb-10 flex justify-center lg:hidden">
-          <LaeLogo variant="footer" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/imagem/logolae3.png"
+            alt="LAE Cartórios"
+            className="h-20 w-auto opacity-90"
+          />
         </div>
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
@@ -136,9 +140,14 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Logo — só no desktop, à direita */}
+          {/* Brasão — só no desktop, à direita */}
           <div className="hidden lg:flex lg:items-start lg:justify-end">
-            <LaeLogo variant="footer" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/imagem/brasao.png"
+              alt="LAE Cartórios"
+              className="h-28 w-auto opacity-90"
+            />
           </div>
         </div>
 
