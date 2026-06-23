@@ -12,7 +12,7 @@ interface ClientsSectionProps {
 
 export function ClientsSection({ clients }: ClientsSectionProps) {
   const autoplay = useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true }),
+    Autoplay({ delay: 10000, stopOnInteraction: false, stopOnMouseEnter: true }),
   );
 
   const [emblaRef] = useEmblaCarousel(
@@ -20,7 +20,7 @@ export function ClientsSection({ clients }: ClientsSectionProps) {
       loop: true,
       align: "start",
       slidesToScroll: 1,
-      duration: 30,
+      duration: 60,
     },
     [autoplay.current],
   );
