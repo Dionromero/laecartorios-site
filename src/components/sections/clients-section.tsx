@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { Quote } from "lucide-react";
 import type { Client } from "@/lib/content";
 
@@ -9,11 +11,19 @@ interface ClientsSectionProps {
 }
 
 export function ClientsSection({ clients }: ClientsSectionProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    slidesToScroll: 1,
-  });
+  const autoplay = useRef(
+    Autoplay({ delay: 10000, stopOnInteraction: false, stopOnMouseEnter: true }),
+  );
+
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      slidesToScroll: 1,
+      duration: 60,
+    },
+    [autoplay.current],
+  );
 
   if (clients.length === 0) return null;
 
@@ -29,14 +39,14 @@ export function ClientsSection({ clients }: ClientsSectionProps) {
         </div>
 
         <div className="relative">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="-ml-4 flex">
+          <div className="overflow-hidden py-4" ref={emblaRef}>
+            <div className="-ml-6 flex">
               {clients.map((client) => (
                 <article
                   key={client.slug}
-                  className="min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+                  className="min-w-0 flex-[0_0_100%] pl-6 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
                 >
-                  <div className="flex h-full items-start gap-4 rounded-xl border border-lae-ink/10 bg-card p-6 transition-all hover:border-lae-amber/50 hover:shadow-lg">
+                  <div className="flex h-full items-start gap-4 rounded-xl border border-lae-ink/10 bg-card p-6 shadow-sm transition-all hover:border-lae-amber/50 hover:shadow-lg">
                     <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-lae-amber text-xl font-bold text-lae-ink">
                       {client.avatar ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -54,10 +64,12 @@ export function ClientsSection({ clients }: ClientsSectionProps) {
                       )}
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-lae-ink">{client.name}</h3>
+                      <h3 className="font-semibold text-lae-ink">
+                        {client.name}
+                      </h3>
                       <p className="text-sm text-lae-stone">{client.location}</p>
                       <Quote className="mt-2 size-4 text-lae-amber" />
-                      <p className="mt-1 text-sm leading-relaxed text-justify text-lae-stone">
+                      <p className="mt-1 text-justify text-sm leading-relaxed text-lae-stone">
                         {client.testimonial}
                       </p>
                     </div>
