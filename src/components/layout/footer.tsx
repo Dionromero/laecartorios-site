@@ -144,7 +144,7 @@ export function Footer() {
           <div className="hidden lg:flex lg:items-start lg:justify-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/imagem/brasao.png"
+              src="/imagem/logolae2.png"
               alt="LAE Cartórios"
               className="h-28 w-auto opacity-90"
             />
