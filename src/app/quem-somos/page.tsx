@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 const diretores = [
   {
     nome: "Diretor",
-    bio: "Neste percurso, é impossível não destacar a liderança inspiradora do Dr. Evandro de Oliveira , cuja experiência e serenidade foram fundamentais para conduzir decisões com sabedoria, mantendo vivos os valores que sustentam a instituição.",
-    foto: "/diretores/diretor-1.jpg",
+    bio: "Evandro Oliveira é contador, CEO e cofundador da LAE Cartórios. Com mais de 30 anos de experiência em auditoria, consultoria empresarial e planejamento tributário, é referência em contabilidade para o setor extrajudicial. Sua trajetória é marcada pela integração entre estratégia, gestão e desenvolvimento de pessoas, impulsionando resultados sustentáveis e a evolução das organizações que assessora.",
+    foto: "/imagem/evandro.jpeg",
   },
 ];
 
@@ -124,10 +124,12 @@ export default function QuemSomosPage() {
                   }`}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-lae-ink/10 bg-lae-amber/30">
-                    {/* Troque por foto real em /public/diretores/ */}
-                    <div className="flex size-full items-center justify-center text-sm font-medium text-lae-ink/50">
-                      {d.nome}
-                    </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={d.foto}
+                      alt={`Foto de ${d.nome}`}
+                      className="size-full object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="font-display text-2xl font-bold tracking-tight text-lae-ink">
