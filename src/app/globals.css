@@ -439,3 +439,24 @@
 @media (prefers-reduced-motion: reduce) {
   .lae-shooter { animation: none !important; opacity: 0 !important; }
 }
+ 
+/* ===== Inputs de formulário ===== */
+.lae-input {
+  width: 100%;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(22, 24, 24, 0.15);
+  background-color: #ffffff;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  color: var(--lae-ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.lae-input::placeholder {
+  color: rgba(84, 84, 84, 0.5);
+}
+.lae-input:focus {
+  outline: none;
+  border-color: var(--lae-amber);
+  box-shadow: 0 0 0 3px rgba(248, 196, 79, 0.2);
+}
+ 
