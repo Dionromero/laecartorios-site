@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { buttonVariants } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   return (
@@ -115,7 +116,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex size-12 items-center justify-center rounded-full border border-lae-ink/15 bg-white/50 text-lae-ink transition-all active:scale-95"
+              className={cn(buttonVariants({ variant: "gold" }), "size-12 rounded-full p-0")}
             >
               <Instagram className="size-5" />
             </a>
@@ -124,7 +125,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="flex size-12 items-center justify-center rounded-full border border-lae-ink/15 bg-white/50 text-lae-ink transition-all active:scale-95"
+              className={cn(buttonVariants({ variant: "gold" }), "size-12 rounded-full p-0")}
             >
               <Linkedin className="size-5" />
             </a>
@@ -156,7 +157,8 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="flex size-11 items-center justify-center rounded-full border border-lae-ink/15 bg-white/50 text-lae-ink transition-all hover:-translate-y-0.5 hover:border-lae-amber hover:bg-lae-amber/10 hover:text-lae-amber-deep"
+                  className={cn(buttonVariants({ variant: "gold" }), "size-11 rounded-full p-0")}
+
                 >
                   <Instagram className="size-5" />
                 </a>
@@ -165,7 +167,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="flex size-11 items-center justify-center rounded-full border border-lae-ink/15 bg-white/50 text-lae-ink transition-all hover:-translate-y-0.5 hover:border-lae-amber hover:bg-lae-amber/10 hover:text-lae-amber-deep"
+                  className={cn(buttonVariants({ variant: "gold" }), "size-11 rounded-full p-0")}
                 >
                   <Linkedin className="size-5" />
                 </a>
