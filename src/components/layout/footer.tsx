@@ -147,7 +147,7 @@ export function Footer() {
             <div className="flex flex-col">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/imagem/brasao.png"
+                src="/imagem/logolae2.png"
                 alt="LAE Cartórios"
                 className="h-32 w-auto"
               />
