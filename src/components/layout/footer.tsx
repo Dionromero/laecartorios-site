@@ -11,6 +11,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { buttonVariants } from "@/components/ui/button";
 
 export function Footer() {
   return (
@@ -32,14 +33,14 @@ export function Footer() {
           <div className="mt-8 grid grid-cols-2 gap-3">
             <a
               href={`tel:${siteConfig.contact.phoneWhatsapp.replace(/\D/g, "")}`}
-              className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-lae-ink/15 bg-white/50 px-4 text-sm font-medium text-lae-ink transition-all active:scale-[0.98]"
-            >
+              className={buttonVariants({ variant: "gold" })}
+              >
               <Phone className="size-4" />
               Ligar
             </a>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-lae-ink/15 bg-white/50 px-4 text-sm font-medium text-lae-ink transition-all active:scale-[0.98]"
+              className={buttonVariants({ variant: "gold" })}
             >
               <Mail className="size-4" />
               E-mail
