@@ -11,7 +11,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
-import { buttonVariants } from "@/components/ui/button";
 
 export function Footer() {
   return (
@@ -33,14 +32,14 @@ export function Footer() {
           <div className="mt-8 grid grid-cols-2 gap-3">
             <a
               href={`tel:${siteConfig.contact.phoneWhatsapp.replace(/\D/g, "")}`}
-              className={buttonVariants({ variant: "gold" })}
-              >
+              className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-lae-ink/15 bg-white/50 px-4 text-sm font-medium text-lae-ink transition-all active:scale-[0.98]"
+            >
               <Phone className="size-4" />
               Ligar
             </a>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className={buttonVariants({ variant: "gold" })}
+              className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-lae-ink/15 bg-white/50 px-4 text-sm font-medium text-lae-ink transition-all active:scale-[0.98]"
             >
               <Mail className="size-4" />
               E-mail
@@ -142,128 +141,134 @@ export function Footer() {
       {/* ===================== DESKTOP ===================== */}
       <div className="hidden lg:block">
         <div className="mx-auto max-w-7xl px-8 py-16">
-          <div className="grid gap-12 lg:grid-cols-5">
-            {/* Principais Links */}
-            <div>
-              <h3 className="mb-4 text-sm font-bold text-lae-ink">
-                Principais Links
-              </h3>
-              <ul className="space-y-2.5">
-                {siteConfig.footer.principalLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-sm text-lae-stone transition-colors hover:text-lae-ink hover:underline"
-                      {...("external" in l && l.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Redes + Materiais */}
-            <div>
-              <h3 className="mb-4 text-sm font-bold text-lae-ink">
-                Redes Sociais
-              </h3>
-              <div className="space-y-2.5">
+          <div className="grid grid-cols-[auto_1fr] gap-16 xl:gap-24">
+            {/* Coluna da marca — brasão + redes */}
+            <div className="flex flex-col">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/imagem/brasao.png"
+                alt="LAE Cartórios"
+                className="h-32 w-auto"
+              />
+              <div className="mt-6 flex gap-3">
                 <a
                   href={siteConfig.contact.instagramLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-lae-stone transition-colors hover:text-lae-ink"
+                  aria-label="Instagram"
+                  className="flex size-11 items-center justify-center rounded-full border border-lae-ink/15 bg-white/50 text-lae-ink transition-all hover:-translate-y-0.5 hover:border-lae-amber hover:bg-lae-amber/10 hover:text-lae-amber-deep"
                 >
-                  <Instagram className="size-4" />
-                  {siteConfig.contact.instagram}
+                  <Instagram className="size-5" />
                 </a>
                 <a
                   href={siteConfig.contact.linkedinLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-lae-stone transition-colors hover:text-lae-ink"
+                  aria-label="LinkedIn"
+                  className="flex size-11 items-center justify-center rounded-full border border-lae-ink/15 bg-white/50 text-lae-ink transition-all hover:-translate-y-0.5 hover:border-lae-amber hover:bg-lae-amber/10 hover:text-lae-amber-deep"
                 >
-                  <Linkedin className="size-4" />
-                  Linkedin
+                  <Linkedin className="size-5" />
                 </a>
               </div>
+            </div>
 
-              <h3 className="mb-4 mt-6 text-sm font-bold text-lae-ink">
-                Materiais
-              </h3>
-              <ul className="space-y-2.5">
-                {siteConfig.footer.materiais.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-sm text-lae-stone transition-colors hover:text-lae-ink hover:underline"
-                    >
-                      {l.label}
-                    </Link>
+            {/* Colunas de links */}
+            <div className="grid grid-cols-4 gap-8">
+              {/* Principais Links */}
+              <div>
+                <h3 className="mb-4 text-sm font-bold text-lae-ink">
+                  Principais Links
+                </h3>
+                <ul className="space-y-2.5">
+                  {siteConfig.footer.principalLinks.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="text-sm text-lae-stone transition-colors hover:text-lae-amber-deep"
+                        {...("external" in l && l.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Materiais */}
+              <div>
+                <h3 className="mb-4 text-sm font-bold text-lae-ink">
+                  Materiais
+                </h3>
+                <ul className="space-y-2.5">
+                  {siteConfig.footer.materiais.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="text-sm text-lae-stone transition-colors hover:text-lae-amber-deep"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contatos */}
+              <div>
+                <h3 className="mb-4 text-sm font-bold text-lae-ink">Contatos</h3>
+                <ul className="space-y-2.5 text-sm text-lae-stone">
+                  <li className="flex items-start gap-2">
+                    <Phone className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
+                    <div>
+                      <span className="block">
+                        {siteConfig.contact.phoneCommercial}
+                      </span>
+                      <span className="text-xs text-lae-stone/70">
+                        Comercial
+                      </span>
+                    </div>
                   </li>
-                ))}
-              </ul>
-            </div>
+                  <li>
+                    <a
+                      href={siteConfig.contact.whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-colors hover:text-lae-amber-deep"
+                    >
+                      {siteConfig.contact.phoneWhatsapp}
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Mail className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
+                    <a
+                      href={`mailto:${siteConfig.contact.email}`}
+                      className="break-all transition-colors hover:text-lae-amber-deep"
+                    >
+                      {siteConfig.contact.email}
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-            {/* Contatos */}
-            <div>
-              <h3 className="mb-4 text-sm font-bold text-lae-ink">Contatos</h3>
-              <ul className="space-y-2.5 text-sm text-lae-stone">
-                <li className="flex items-start gap-2">
-                  <Phone className="mt-0.5 size-4 shrink-0" />
-                  <div>
-                    <span className="block">
-                      {siteConfig.contact.phoneCommercial}
-                    </span>
-                    <span className="text-xs text-lae-stone/70">Comercial</span>
-                  </div>
-                </li>
-                <li>
-                  <a
-                    href={siteConfig.contact.whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors hover:text-lae-ink hover:underline"
-                  >
-                    {siteConfig.contact.phoneWhatsapp}
-                  </a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Mail className="mt-0.5 size-4 shrink-0" />
-                  <a
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="break-all transition-colors hover:text-lae-ink hover:underline"
-                  >
-                    {siteConfig.contact.email}
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Endereço */}
-            <div>
-              <h3 className="mb-4 text-sm font-bold text-lae-ink">Endereço</h3>
-              <p className="flex items-start gap-2 text-sm text-lae-stone">
-                <MapPin className="mt-0.5 size-4 shrink-0" />
-                <span>{siteConfig.contact.address}</span>
-              </p>
-            </div>
-
-            {/* Brasão */}
-            <div className="flex items-start justify-end">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/imagem/brasao.png"
-                alt="LAE Cartórios"
-                className="h-28 w-auto"
-              />
+              {/* Endereço */}
+              <div>
+                <h3 className="mb-4 text-sm font-bold text-lae-ink">Endereço</h3>
+                <a
+                  href="https://www.google.com/maps?q=Rua+Solim%C3%B5es+849+Merc%C3%AAs+Curitiba+PR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 text-sm text-lae-stone transition-colors hover:text-lae-amber-deep"
+                >
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
+                  <span>{siteConfig.contact.address}</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="mt-12 border-t border-lae-ink/15 pt-6 text-center">
+          <div className="mt-14 border-t border-lae-ink/15 pt-6 text-center">
             <p className="text-xs font-semibold text-lae-ink">
               © {new Date().getFullYear()} LAE Cartórios. Todos os direitos
               reservados.
