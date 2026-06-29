@@ -5,10 +5,9 @@ import {
   Shield,
   TrendingUp,
   Users,
-  ArrowDownRight,
   type LucideIcon,
 } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/site-config";
 import type { Service } from "@/lib/content";
@@ -33,9 +32,8 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Coluna esquerda — Como podemos ajudar */}
           <Reveal>
-            <h2 className="font-display text-3xl text-center font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
-              Como podemos{" "}
-              <span className="heading-accent">ajudar?</span>
+            <h2 className="text-center font-display text-3xl font-bold leading-tight tracking-tight text-lae-ink sm:text-4xl">
+              Como podemos <span className="heading-accent">ajudar?</span>
             </h2>
 
             <ul className="m-8 grid grid-cols-3 gap-5">
@@ -62,7 +60,7 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
               <span className="block heading-accent">para a sua Gestão</span>
             </h2>
 
-            <p className="mt-8 text-base text-justify leading-relaxed text-lae-stone">
+            <p className="mt-8 text-justify text-base leading-relaxed text-lae-stone">
               Ao contratar a LAE, você adquire atendimento exclusivo, onboarding
               personalizado dos serviços e a tranquilidade de uma gestão blindada
               com prestação de contas impecável.
@@ -72,17 +70,16 @@ export function SolutionsSection({ services }: SolutionsSectionProps) {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg">
+              <Button asChild size="lg" variant="primary">
                 <a
                   href={siteConfig.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={buttonVariants({ variant: "primary", size: "lg" })}
                 >
                   Solicitar diagnóstico
                 </a>
               </Button>
-              <Button asChild size="lg" variant="ink">
+              <Button asChild size="lg" variant="soft">
                 <a href="/servicos">Ver todos os serviços</a>
               </Button>
             </div>
