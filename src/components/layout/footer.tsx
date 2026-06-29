@@ -139,19 +139,18 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ===================== DESKTOP ===================== */}
-      <div className="hidden lg:block">
+    <div className="hidden lg:block">
         <div className="mx-auto max-w-7xl px-8 py-16">
           <div className="grid grid-cols-[auto_1fr] gap-16 xl:gap-24">
             {/* Coluna da marca — brasão + redes */}
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/imagem/logolae2.png"
                 alt="LAE Cartórios"
                 className="h-32 w-auto"
               />
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 flex justify-center gap-3">
                 <a
                   href={siteConfig.contact.instagramLink}
                   target="_blank"
@@ -172,7 +171,7 @@ export function Footer() {
                 </a>
               </div>
             </div>
-
+ 
             {/* Colunas de links */}
             <div className="grid grid-cols-4 gap-8">
               {/* Principais Links */}
