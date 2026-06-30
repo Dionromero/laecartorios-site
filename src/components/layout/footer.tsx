@@ -105,6 +105,15 @@ export function Footer() {
                     {siteConfig.contact.address}
                   </a>
                 </li>
+                <li className="flex items-start gap-2.5 py-1.5">
+                  <Mail className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="break-words transition-colors active:text-lae-ink"
+                  >
+                    {siteConfig.contact.email}
+                  </a>
+                </li>
               </ul>
             </AccordionSection>
           </div>
