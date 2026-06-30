@@ -246,7 +246,7 @@ export function Footer() {
                     <Mail className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
                     <a
                       href={`mailto:${siteConfig.contact.email}`}
-                      className="break-all transition-colors hover:text-lae-amber-deep"
+                      className="break-words transition-colors hover:text-lae-amber-deep"
                     >
                       {siteConfig.contact.email}
                     </a>
@@ -259,13 +259,13 @@ export function Footer() {
                 <h3 className="mb-4 text-sm font-bold text-lae-ink">Endereço</h3>
                 <a
                   href="https://www.google.com/maps?q=Rua+Solim%C3%B5es+849+Merc%C3%AAs+Curitiba+PR"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2 text-sm text-lae-stone transition-colors hover:text-lae-amber-deep"
-                >
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
-                  <span>{siteConfig.contact.address}</span>
-                </a>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex text-justify items-start gap-2 text-sm text-lae-stone transition-colors hover:text-lae-amber-deep"                  
+                    >
+                    <MapPin className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
+                    <span className="flex-1">{siteConfig.contact.address}</span>
+                  </a>
               </div>
             </div>
           </div>
