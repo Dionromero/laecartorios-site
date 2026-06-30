@@ -246,7 +246,7 @@ export function Footer() {
                     <Mail className="mt-0.5 size-4 shrink-0 text-lae-amber-deep" />
                     <a
                       href={`mailto:${siteConfig.contact.email}`}
-                      className="break-all transition-colors hover:text-lae-amber-deep"
+                      className="break-words transition-colors hover:text-lae-amber-deep"
                     >
                       {siteConfig.contact.email}
                     </a>
