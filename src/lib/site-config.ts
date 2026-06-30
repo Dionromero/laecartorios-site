@@ -19,7 +19,7 @@ export const siteConfig = {
   ] as NavItem[],
 
   contact: {
-    address: "Rua Solimões, 849 — Bairro Mercês, Curitiba/PR — Brasil",
+    address: "Rua Solimões, 849 — Mercês, Curitiba/PR",
     phoneCommercial: "(41) 3040-7171",
     phoneWhatsapp: "(41) 99292-2323",
     whatsappLink: "https://wa.me/5541992922323",
